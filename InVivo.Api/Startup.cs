@@ -41,8 +41,6 @@ namespace InVivo.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //Incluir o Mvc e o Cors na ordem
-
             // 1. Polices
             services.AddMvc(config =>
             {
@@ -110,7 +108,7 @@ namespace InVivo.Api
                 TokenValidationParameters = tokenValidationParameters
             });
 
-            // 3. Incluir o Mvc e o Cors na ordem inversa
+            // 3. CORS
             app.UseCors(x =>
             {
                 x.AllowAnyHeader();
