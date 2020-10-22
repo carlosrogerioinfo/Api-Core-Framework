@@ -19,6 +19,9 @@ namespace InVivo.Api
             services.AddTransient<IExamLabRepository, ExamLabRepository>();
             services.AddTransient<ExamLabCommandHandler, ExamLabCommandHandler>();
 
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<UserCommandHandler, UserCommandHandler>();
+                
 
         }
 

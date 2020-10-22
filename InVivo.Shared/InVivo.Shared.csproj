@@ -43,12 +43,11 @@
     <Compile Include="Commands\ICommandHandler.cs" />
     <Compile Include="Commands\ICommandResult.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Library\SharedStringLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Library\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

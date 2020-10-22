@@ -31,10 +31,11 @@ namespace InVivo.Api.Controllers
                 }
                 catch
                 {
+                    // Logar o erro (Elmah)
                     return BadRequest(new
                     {
                         success = false,
-                        errors = new[] { "Ocorreu um erro interno no servidor." }
+                        errors = new[] { "Ocorreu uma falha interna no servidor." }
                     });
                 }
             }

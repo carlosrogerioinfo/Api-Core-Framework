@@ -8,25 +8,28 @@ using System.Threading.Tasks;
 
 namespace InVivo.Infrastructure.Mappings
 {
-    public class ExamLabMap: EntityTypeConfiguration<ExamLab>
+    public class UserMap: EntityTypeConfiguration<User>
     {
-        public ExamLabMap()
+        public UserMap()
         {
 
-            ToTable("biositeapp_exams");
+            ToTable("biositeapp_user");
             HasKey(x => x.Id);
 
-            Property(x => x.Code)
+            Property(x => x.Username)
                 .IsRequired()
-                .HasMaxLength(5);
+                .HasMaxLength(50);
 
-            Property(x => x.Name)
+            Property(x => x.Password)
                 .IsRequired()
-                .HasMaxLength(255);
+                .HasMaxLength(20);
+
+            Property(x => x.Email)
+                .IsRequired()
+                .HasMaxLength(20);
 
             Property(x => x.Active)
                 .IsRequired();
-                
 
         }
     }

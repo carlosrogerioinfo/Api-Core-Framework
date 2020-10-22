@@ -7,39 +7,40 @@ using System.Linq;
 
 namespace InVivo.Infrastructure.Repositories
 {
-    public class ExamLabRepository : IExamLabRepository
+    public class UserRepository : IUserRepository
     {
         private readonly InVivoDataContext _context;
 
-        public ExamLabRepository(InVivoDataContext context)
+        public UserRepository(InVivoDataContext context)
         {
             _context = context;
         }
 
-        public ExamLab GetByCode(string code)
+        public User GetById(Guid id)
         {
             return _context
-                .Exams
-                .AsNoTracking() //For increase performance
-                .FirstOrDefault (x => x.Code.Equals(code));
-        }
-
-        public ExamLab GetById(Guid id)
-        {
-            return _context
-                .Exams
+                .Users
                 .AsNoTracking() //For increase performance
                 .FirstOrDefault(x => x.Id.Equals(id));
         }
 
-        public void Save(ExamLab examlab)
+        public User GetByUser(string email, string password)
         {
-            _context.Exams.Add(examlab);
+            return _context
+                .Users
+                .AsNoTracking() //For increase performance
+                .FirstOrDefault(x => x.Email.Equals(email) 
+                    && x.Password.Equals(password));
         }
 
-        public void Update(ExamLab examlab)
+        public void Save(User User)
         {
-            _context.Entry(examlab).State = EntityState.Modified;
+            _context.Users.Add(User);
+        }
+
+        public void Update(User User)
+        {
+            _context.Entry(User).State = EntityState.Modified;
         }
 
 

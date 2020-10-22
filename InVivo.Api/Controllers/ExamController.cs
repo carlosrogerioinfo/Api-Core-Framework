@@ -2,6 +2,7 @@
 using InVivo.Domain.Commands.Inputs;
 using InVivo.Domain.Repositories;
 using InVivo.Infrastructure.Transactions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -22,10 +23,21 @@ namespace InVivo.Api.Controllers
 
         [HttpGet]
         [Route("exames/{id}")]
+        [AllowAnonymous]
         public IActionResult Get(Guid id)
         {
             var data = _repository.GetById(id);
             return Ok(data);
+
+        }
+
+        [HttpGet]
+        [Route("exames2/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Get2(Guid id)
+        {
+            var data = _repository.GetById(id);
+            return await Response (data, data.Notifications);
 
         }
 

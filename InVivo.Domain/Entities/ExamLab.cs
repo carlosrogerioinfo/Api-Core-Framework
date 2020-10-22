@@ -7,7 +7,7 @@ namespace InVivo.Domain.Entities
     {
 
         //Constructors
-        protected ExamLab() { } 
+        protected ExamLab() { } //EntityFramework needs empty constructor, for prevents corruptive, we sign constructor protected
 
         public ExamLab(string code, string name)
         {
