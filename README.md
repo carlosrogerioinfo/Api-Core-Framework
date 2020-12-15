@@ -1,3 +1,3 @@
-# Api-Core-Framework
+# Api-Core-Framework (Aruitetura de Projeto WebAPI REST)
 
 ### Modelo de arquitetura de Api com uso de EntityFramework, Multiplataforma. Com .Net Framework e .Net Core Framework. Uso de Handlers, Event Notifications, Repository Pattern ...
